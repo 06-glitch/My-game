@@ -29,15 +29,15 @@ pygame.display.set_caption("My game")
 def inside(center,radius,point):
 	return (point[0]-center[0])**2+(point[1]-center[1])**2<radius*radius
 
-def intersect(vertical_acceleration,b,center,radius):
-	if vertical_acceleration[0]==b[0]:
-		if center[0]-radius<vertical_acceleration[0]<center[0]+radius:
-			return min(vertical_acceleration[1],b[1])<center[1]<max(vertical_acceleration[1],b[1])
+def intersect(a,b,center,radius):
+	if a[0]==b[0]:
+		if center[0]-radius<a[0]<center[0]+radius:
+			return min(a[1],b[1])<center[1]<max(a[1],b[1])
 		else:
 			return False
 	else:
-		if center[1]-radius<vertical_acceleration[1]<center[1]+radius:
-			return min(vertical_acceleration[0],b[0])<center[0]<max(vertical_acceleration[0],b[0])
+		if center[1]-radius<a[1]<center[1]+radius:
+			return min(a[0],b[0])<center[0]<max(a[0],b[0])
 		else:
 			return False
 
@@ -275,6 +275,5 @@ def gameintro(background=background):
 		clock.tick(15)
 
 gameintro(background)
-
 
 
